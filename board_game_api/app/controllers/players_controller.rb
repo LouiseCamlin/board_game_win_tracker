@@ -45,6 +45,23 @@ class PlayersController < ApplicationController
    render json: player, status: :created
   end
 
+  def update
+    player = Player.find( params[:id] )
+    if player.update_attributes(player_params)
+      render json: player
+    else
+      render json: {status: :update_failed}
+    end
+  end
+
+  def destroy
+    player = Player.find( params[:id])
+    if player.destroy!
+      render json: {status: :success}
+    else
+      render json: {status: :delete_failed}
+    end
+  end
 
 
 
