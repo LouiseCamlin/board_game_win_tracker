@@ -2,7 +2,22 @@ class GamesController < ApplicationController
 
   def index
     games = Game.all
-    render :json => games.to_json()
+    render(
+      json: games.to_json( {
+        only: [:title, :id],
+         include: {
+            wins: {
+              include: {
+                player: {
+                  only: [:name, :created_at]
+                }
+              },
+              only: [:player_id]
+            }
+          }
+        }
+      )
+    )
   end
 
   def show
