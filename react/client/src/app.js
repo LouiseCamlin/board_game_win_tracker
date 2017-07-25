@@ -10,6 +10,7 @@ window.addEventListener('load', function () {
     <HashRouter>
       <div>
         {/* <Route path="/" component={MainContainer} /> */}
+        <Route exact path="/" component={MainContainer} />
         <Route exact path="/home" component={MainContainer} />
         <Route path="/players" component={PlayerContainer} />
         <Route path="/games" component={GamesContainer} />
