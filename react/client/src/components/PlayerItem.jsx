@@ -8,7 +8,7 @@ class PlayerItem extends React.Component {
 
   mapPlayerGameNodes() {
     const playerGameNodes = this.props.games.map((win, index) => {
-      var time = win.game.created_at.split("").slice(0, -14).join("")
+      var time = win.date.split("").slice(0, -14).join("")
       return <ul key={index}>
         <li>Game: {win.game.title}</li>
       <li> Date Played: {time}</li></ul>
@@ -28,7 +28,7 @@ class PlayerItem extends React.Component {
 
     return(
       <div id="list-item">
-        <p id="winner-names">Name: {this.props.name}</p>
+        <p id="player-names">Name: {this.props.name}</p>
         <div id="player-deets">
           {playerGameNodes}
         </div>

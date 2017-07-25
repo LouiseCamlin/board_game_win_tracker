@@ -6,26 +6,49 @@ class PlayerList extends React.Component {
 
   constructor(props){
     super(props)
+    this.state = {
+      newPlayer: ""
+    }
+  }
+
+  submitNewPlayer(event) {
+    event.preventDefault()
+    this.props.onAddPlayer(this.state.newPlayer)
+  }
+
+
+  playerKeyUp(event){
+    this.setState({
+      newPlayer: event.target.value
+    })
   }
 
   render() {
 
-     const playerItem = this.props.players.map((player, index) => {
-       console.log(player.wins)
-    return (
-      <PlayerItem key={index} value={index} name={player.name} games={player.wins}/>
+    const playerItem = this.props.players.map((player, index) => {
+
+      return (
+        <PlayerItem key={index} value={index} name={player.name} games={player.wins}/>
       )
 
     })
 
-     return (
+    return (
 
-       <div id="player-list">
-         {playerItem}
-       </div>
-     );
-   }
 
+      <div id="player-list">
+        <form onSubmit={this.submitNewPlayer.bind(this)}>
+          <input type="text" onChange={this.playerKeyUp.bind(this)} value={this.state.newPlayer} placeholder="Enter Player" />
+
+
+          <input type="submit" name="submit" value="Add New Player!" />
+        </form>
+        <a>
+          {playerItem}
+        </a>
+      </div>
+    );
+  }
 }
 
 export default PlayerList
