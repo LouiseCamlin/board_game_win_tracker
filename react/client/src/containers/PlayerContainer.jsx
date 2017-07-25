@@ -1,5 +1,6 @@
 import React from 'react'
 import PlayerList from '../components/PlayerList.jsx'
+import {Link} from 'react-router-dom'
 
 class PlayerContainer extends React.Component{
 
@@ -38,6 +39,7 @@ class PlayerContainer extends React.Component{
 
     return(
       <div>
+        <li><Link to="/Home">Home</Link></li>
         <h2>Players</h2>
           <PlayerList players={this.state.players} />
         </div>
