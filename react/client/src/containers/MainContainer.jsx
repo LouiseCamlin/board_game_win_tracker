@@ -1,64 +1,70 @@
 import React from 'react'
-import PlayerList from '../components/PlayerList.jsx'
+import PlayerContainer from './PlayerContainer.jsx'
+import GamesContainer from './GamesContainer'
+import {Link} from 'react-router-dom'
 
-class MainContainer extends React.Component{
 
-  constructor(props){
+class MainContainer extends React.Component {
+
+  constructor(props) {
     super(props)
-
-    this.state ={
-      playerId: null,
-      players: []
+    this.state = {
+      container: null,
     }
   }
 
-  getPlayerList() {
-     const url = 'http://localhost:5000/api/players/'
-     const request = new XMLHttpRequest();
-     request.open('GET', url);
-     request.onload = () => {
-       if (request.status === 200) {
-         const jsonData = request.responseText;
-         const playerData = JSON.parse(jsonData);
-         this.setState({players: playerData});
-       }
-     }
-     request.send(null);
-   }
-
-  //  getGameList() {
-  //
-  //   const url = 'http://localhost:5000/api/games/'
-  //   const request = new XMLHttpRequest();
-  //   request.open('GET', url);
-  //   request.onload = () => {
-  //     if (request.status === 200) {
-  //       const jsonData = request.responseText;
-  //       const gameData = JSON.parse(jsonData);
-  //       const gameList = gameData.results;
-  //       gameList.forEach((game, index) => {
-  //         game.id = index;
-  //       });
-  //       this.setState({gameList: gameList});
-  //     }
-  //   }
-  //   request.send(null);
-  // }
 
 
-  componentDidMount() {
-     this.getPlayerList();
+  selectPlayer() {
+    this.setState({ container: "player" })
+    console.log("player");
+  }
 
+  selectGames() {
+    this.setState({ container: "games" })
   }
 
   render() {
-    console.log("players:", this.state.players);
-    
-    return(
-      <PlayerList players={this.state.players} />
-    )
+
+    // if (this.state.container === "player") {
+    //   return (
+    //     <PlayerContainer />
+    //
+    //   )
+    // } else if (this.state.container === "games") {
+    //   return (
+    //     <GamesContainer />
+    //   )
+    // } else
+      return (
+        <div>
+        <h2>Win Tracker</h2>
+
+        <ul>
+          <li><Link to="/Home">Home</Link></li>
+          <li><Link to="/Players">Players</Link></li>
+          <li><Link to="/Games">Games</Link></li>
+        </ul>
+          {/* <button id='player' onClick={this.selectPlayer.bind(this)}>Players</button>
+          <button id='games' onClick={this.selectGames.bind(this)}>Games</button> */}
+        </div>
+      )
+
   }
 
- }
+}
 
 export default MainContainer
+
+// render(){
+//    return(
+//      <div>
+//        <h4> Main App</h4>
+//        <ul>
+//          <li><Link to="/home">Home</Link></li>
+//          <li><Link to="/about">About</Link></li>
+//          <li><Link to="/pricing">Pricing</Link></li>
+//        </ul>
+//      </div>
+//    )
+//  }
