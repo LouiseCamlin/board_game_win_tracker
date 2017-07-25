@@ -19,7 +19,6 @@ window.addEventListener('load', function () {
       </div>
 
     </HashRouter>,
-  //  <MainContainer />,
     document.getElementById('app')
   );
 });
