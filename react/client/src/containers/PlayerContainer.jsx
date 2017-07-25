@@ -9,8 +9,34 @@ class PlayerContainer extends React.Component{
 
     this.state ={
       playerId: null,
-      players: []
+      players: [],
+      playerKeyUp: null
     }
+  }
+
+  addPlayer(newPlayerName){
+    const url = 'http://localhost:5000/api/players/'
+    const newPlayer = {player: { name: newPlayerName} }
+    const request = new XMLHttpRequest();
+    request.open('POST', url);
+    request.setRequestHeader("Content-Type", "application/json")
+    request.onload = () => {
+      this.getPlayerList()
+    }
+    request.send(JSON.stringify(newPlayer))
+  }
+
+  deletePlayer(){
+    const url = 'http://localhost:5000/api/players/' + id
+    const request = new XMLHttpRequest();
+    request.open('DELETE', url);
+    request.onload = () => {
+      
+    }
+  }
+
+  editPlayer(){
+
   }
 
   getPlayerList() {
@@ -31,7 +57,6 @@ class PlayerContainer extends React.Component{
 
   componentDidMount() {
      this.getPlayerList();
-
   }
 
   render() {
@@ -40,8 +65,10 @@ class PlayerContainer extends React.Component{
     return(
       <div>
         <li><Link to="/Home">Home</Link></li>
+        <li><Link to="/Games">Games</Link></li>
+        <li><Link to="/New">Add New Winner</Link></li>
         <h2>Players</h2>
-          <PlayerList players={this.state.players} />
+          <PlayerList onAddPlayer={this.addPlayer.bind(this)} players={this.state.players} playerKeyUp={this.state.playerKeyUp}/>
         </div>
     )
   }
