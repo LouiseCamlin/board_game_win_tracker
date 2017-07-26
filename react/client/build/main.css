@@ -2,16 +2,27 @@ body{
   font-family: "roboto";
 }
 
-.nav-bar{
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  padding-right: 20px;
-  text-align: right;
-}
-
 a {
   padding-right: 20px;
+  padding-left: 30px;
+  color: white;
+}
+
+input {
+  margin-right: 10px;
+}
+
+h2{
+  margin-left: 20px;
+  padding-left: 20px;
+  padding-bottom: 30px;
+}
+
+
+
+
+#date-input{
+  width: 150px;
 
 }
 
@@ -27,6 +38,61 @@ a {
   border-radius: 25px;
 }
 
-input {
-  margin-right: 10px;
+#new-winner{
+  text-align: center;
 }
+
+#player-input{
+  width:175px;
+  margin-left: 20px;
+}
+
+#game-input{
+  width: 175px;
+  margin-left: 20px;
+}
+
+
+.select{
+  width: 150px;
+  margin-left: 575px;
+  margin-bottom: 15px;
+  border: 1px solid grey;
+}
+.nav-bar{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  padding-right: 20px;
+  padding-left: 20px;
+  text-align: right;
+  height: 45px;
+  text-align: center;
+  padding-top: 10px;
+  margin: 0;
+}
+
+.deets{
+  padding-left: 20px;
+  color: black;
+  margin-left: 20px;
+}
+
+.names{
+  margin-left: 20px;
+}
+
+.button{
+  margin-left: 30px;
+}
+
+/*.date {
+  display: flex;
+  flex-direction: column;
+  margin-left: 600px;
+}*/
+
+/*#new-winner{
+  display: flex;
+  flex-direction: column;
+}*/

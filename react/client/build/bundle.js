@@ -7370,7 +7370,7 @@ class GamesContainer extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Compo
 
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
-      null,
+      { className: 'main-div' },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'ul',
         { className: 'nav-bar' },
@@ -7503,7 +7503,7 @@ class PlayerContainer extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Comp
 
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
-      null,
+      { className: 'main-div' },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'ul',
         { className: 'nav-bar' },
@@ -11677,33 +11677,36 @@ class NewWinForm extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component
 
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
-      null,
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('ul', { className: 'nav-bar' }),
+      { className: 'main-div' },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'li',
-        null,
+        'ul',
+        { className: 'nav-bar' },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Link */],
-          { to: '/Home' },
-          'Home'
-        )
-      ),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'li',
-        null,
+          'li',
+          null,
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Link */],
+            { to: '/Home' },
+            'Home'
+          )
+        ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Link */],
-          { to: '/Players' },
-          'Players'
-        )
-      ),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'li',
-        null,
+          'li',
+          null,
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Link */],
+            { to: '/Players' },
+            'Players'
+          )
+        ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Link */],
-          { to: '/Games' },
-          'Games'
+          'li',
+          null,
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Link */],
+            { to: '/Games' },
+            'Games'
+          )
         )
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -11713,19 +11716,19 @@ class NewWinForm extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'form',
-        { onSubmit: this.submitNewWinner.bind(this) },
+        { id: 'new-winner', onSubmit: this.submitNewWinner.bind(this) },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'select',
-          { id: 'player-select', name: 'select_player', onChange: this.handlePlayerSelect.bind(this) },
+          { id: 'player-select', className: 'browser-default select', name: 'select_player', onChange: this.handlePlayerSelect.bind(this) },
           playerOptions
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'select',
-          { id: 'game-select', onChange: this.handleGameSelect.bind(this) },
+          { id: 'game-select', className: 'browser-default select', onChange: this.handleGameSelect.bind(this) },
           gameOptions
         ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'date', onChange: this.handleDate.bind(this) }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'submit', name: 'submit', value: 'Add New Win!' })
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'date-input', type: 'date', className: 'datepicker date', onChange: this.handleDate.bind(this) }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'win-submit', className: 'date', type: 'submit', name: 'submit', value: 'Add New Win!' })
       )
     );
   }
@@ -11758,7 +11761,7 @@ class MainContainer extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Compon
 
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
-      null,
+      { className: 'main-div' },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { id: 'welcome-nav' },
@@ -11897,7 +11900,7 @@ class GameItem extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
   mapGamePlayerNodes() {
     const gamePlayerNodes = this.props.game.wins.map((win, index) => {
-      var time = win.date.split("").slice(0, -14).join("");
+      //const time = win.date.split("").slice(0, -14).join("")
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         "ul",
         { key: index },
@@ -11911,7 +11914,7 @@ class GameItem extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
           "li",
           null,
           " Date Played: ",
-          time
+          win.date
         )
       );
     });
@@ -11927,28 +11930,21 @@ class GameItem extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
       { id: "list-item" },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         "p",
-        { id: "winner-names" },
+        { className: "names" },
         "Name: ",
         this.props.game.title
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         "div",
-        { id: "game-deets" },
+        { className: "deets" },
         gamePlayerNodes
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         "button",
-        { onClick: () => {
+        { className: "button", onClick: () => {
             this.deleteSelectedGame(this.props.game.id);
           } },
         "Delete"
-      ),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        "button",
-        { onClick: () => {
-            this.editSelectedPlayer(this.props.game.id);
-          } },
-        "Edit"
       )
     );
   }
@@ -12001,7 +11997,7 @@ class GameList extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'form',
         { onSubmit: this.submitNewGame.bind(this) },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', onChange: this.gameKeyUp.bind(this), value: this.state.newGame, placeholder: 'Enter Game' }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'game-input', type: 'text', onChange: this.gameKeyUp.bind(this), value: this.state.newGame, placeholder: 'Enter Game' }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'submit', name: 'submit', value: 'Add New Game!' })
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -12040,7 +12036,7 @@ class PlayerItem extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component
 
   mapPlayerGameNodes() {
     const playerGameNodes = this.props.player.wins.map((win, index) => {
-      var time = win.date.split("").slice(0, -14).join("");
+      //  var time = win.date.split("").slice(0, -14).join("")
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         "ul",
         { key: index },
@@ -12054,7 +12050,7 @@ class PlayerItem extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component
           "li",
           null,
           " Date Played: ",
-          time
+          win.date
         )
       );
     });
@@ -12070,28 +12066,21 @@ class PlayerItem extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component
       { id: "list-item" },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         "p",
-        { id: "player-names" },
+        { className: "names" },
         "Name: ",
         this.props.player.name
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         "div",
-        { id: "player-deets" },
+        { className: "deets" },
         playerGameNodes
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         "button",
-        { onClick: () => {
+        { className: "button", onClick: () => {
             this.deleteSelectedPlayer(this.props.player.id);
           } },
         "Delete"
-      ),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        "button",
-        { onClick: () => {
-            this.editSelectedPlayer(this.props.player.id);
-          } },
-        "Edit"
       )
     );
   }
@@ -12148,7 +12137,7 @@ class PlayerList extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'form',
         { onSubmit: this.submitNewPlayer.bind(this) },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', onChange: this.playerKeyUp.bind(this), value: this.state.newPlayer, placeholder: 'Enter Player' }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'player-input', type: 'text', onChange: this.playerKeyUp.bind(this), value: this.state.newPlayer, placeholder: 'Enter Player' }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'submit', name: 'submit', value: 'Add New Player!' })
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
