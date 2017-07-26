@@ -113,6 +113,7 @@ class NewWinForm extends React.Component{
 
      return (
        <div>
+         <ul className="nav-bar"></ul>
          <li><Link to="/Home">Home</Link></li>
          <li><Link to="/Players">Players</Link></li>
          <li><Link to="/Games">Games</Link></li>

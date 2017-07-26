@@ -75,9 +75,11 @@ class PlayerContainer extends React.Component{
 
     return(
       <div>
+        <ul className="nav-bar">
         <li><Link to="/Home">Home</Link></li>
         <li><Link to="/Games">Games</Link></li>
         <li><Link to="/New">Add New Winner</Link></li>
+        </ul>
         <h2>Players</h2>
           <PlayerList onAddPlayer={this.addPlayer.bind(this)}
             onDeletePlayer={this.deletePlayer.bind(this)}

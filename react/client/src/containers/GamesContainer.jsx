@@ -74,15 +74,18 @@ class GamesContainer extends React.Component{
 
     return(
       <div>
+        <ul className="nav-bar">
         <li><Link to="/Home">Home</Link></li>
         <li><Link to="/Players">Players</Link></li>
         <li><Link to="/New">Add New Winner</Link></li>
+        </ul>
           <h2>Games</h2>
           <GameList onAddGame={this.addGame.bind(this)}
             onDeleteGame={this.deleteGame.bind(this)}
             onEditGame={this.editGame.bind(this)}
             games={this.state.games}
             gameKeyUp={this.state.gameKeyUp}/>
+
       </div>
     )
   }

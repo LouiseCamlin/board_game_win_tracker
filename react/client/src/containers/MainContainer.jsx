@@ -15,14 +15,18 @@ class MainContainer extends React.Component {
 
       return (
         <div>
-        <h2>Win Tracker</h2>
-
-        <ul>
-          <li><Link to="/Home">Home</Link></li>
-          <li><Link to="/Players">Players</Link></li>
-          <li><Link to="/Games">Games</Link></li>
-          <li><Link to="/New">Add new Win</Link></li>
-        </ul>
+          <div id="welcome-nav">
+          <ul className="nav-bar">
+            <li><Link to="/Home">Home</Link></li>
+            <li><Link to="/Players">Players</Link></li>
+            <li><Link to="/Games">Games</Link></li>
+            <li><Link to="/New">Add new Win</Link></li>
+          </ul>
+        </div>
+        <div id="welcome">
+        <h3>Welcome to Miss Louise's Boardgame Win Tracker!</h3>
+        <p>Here you can add new players, new games and new wins!</p>
+        </div>
 
         </div>
       )

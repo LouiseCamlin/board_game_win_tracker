@@ -1,0 +1,20 @@
+.nav-bar{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  padding-right: 20px;
+  text-align: right;
+}
+
+a {
+  padding-right: 20px;
+
+}
+
+#welcome {
+  text-align: center;
+}
+
+#welcome-nav {
+  text-align: center;
+}
