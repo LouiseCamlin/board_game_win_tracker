@@ -25,7 +25,7 @@ class WinsController < ApplicationController
 
   private
   def win_params
-    params.require([:player, :game]).permit([:name, :title])
+    params.require(:win).permit(:date, :player_id, :game_id)
   end
 
 end
