@@ -1,3 +1,7 @@
+body{
+  font-family: "roboto";
+}
+
 .nav-bar{
   list-style: none;
   display: flex;
@@ -17,4 +21,12 @@ a {
 
 #welcome-nav {
   text-align: center;
+}
+
+#player-text-input {
+  border-radius: 25px;
+}
+
+input {
+  margin-right: 10px;
 }
