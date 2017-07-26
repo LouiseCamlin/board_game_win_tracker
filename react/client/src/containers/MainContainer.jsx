@@ -8,10 +8,8 @@ class MainContainer extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      container: null,
-    }
   }
+
 
   render() {
 
