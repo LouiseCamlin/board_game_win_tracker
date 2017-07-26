@@ -73,7 +73,7 @@ class GamesContainer extends React.Component{
     console.log("games:", this.state.games);
 
     return(
-      <div>
+      <div className="main-div">
         <ul className="nav-bar">
         <li><Link to="/Home">Home</Link></li>
         <li><Link to="/Players">Players</Link></li>

@@ -14,7 +14,7 @@ class MainContainer extends React.Component {
   render() {
 
       return (
-        <div>
+        <div className="main-div">
           <div id="welcome-nav">
           <ul className="nav-bar">
             <li><Link to="/Home">Home</Link></li>

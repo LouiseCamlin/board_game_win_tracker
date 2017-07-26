@@ -112,21 +112,22 @@ class NewWinForm extends React.Component{
     })
 
      return (
-       <div>
-         <ul className="nav-bar"></ul>
+       <div className="main-div">
+         <ul className="nav-bar">
          <li><Link to="/Home">Home</Link></li>
          <li><Link to="/Players">Players</Link></li>
          <li><Link to="/Games">Games</Link></li>
+         </ul>
          <h2>Add a new winner!</h2>
-         <form onSubmit={this.submitNewWinner.bind(this)}>
-        <select id= "player-select" name="select_player" onChange={this.handlePlayerSelect.bind(this)}>
+         <form id="new-winner" onSubmit={this.submitNewWinner.bind(this)}>
+        <select id= "player-select" className="browser-default select" name="select_player" onChange={this.handlePlayerSelect.bind(this)}>
           {playerOptions}
         </select>
-        <select id="game-select" onChange={this.handleGameSelect.bind(this)}>
+        <select id="game-select" className="browser-default select" onChange={this.handleGameSelect.bind(this)}>
           {gameOptions}
         </select>
-        <input type="date" onChange={this.handleDate.bind(this)}></input>
-        <input type="submit" name="submit" value="Add New Win!" />
+        <input id="date-input" type="date"  className="datepicker date" onChange={this.handleDate.bind(this)}></input>
+        <input id="win-submit" className="date" type="submit" name="submit" value="Add New Win!" />
         </form>
         </div>
       );

@@ -37,7 +37,7 @@ class GameList extends React.Component {
 
        <div id="game-list">
          <form onSubmit={this.submitNewGame.bind(this)}>
-           <input type="text" onChange={this.gameKeyUp.bind(this)} value={this.state.newGame} placeholder="Enter Game" />
+           <input id="game-input" type="text" onChange={this.gameKeyUp.bind(this)} value={this.state.newGame} placeholder="Enter Game" />
            <input type="submit" name="submit" value="Add New Game!" />
          </form>
          <a>

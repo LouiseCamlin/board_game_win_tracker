@@ -74,7 +74,7 @@ class PlayerContainer extends React.Component{
     console.log("players:", this.state.players);
 
     return(
-      <div>
+      <div className="main-div">
         <ul className="nav-bar">
         <li><Link to="/Home">Home</Link></li>
         <li><Link to="/Games">Games</Link></li>
