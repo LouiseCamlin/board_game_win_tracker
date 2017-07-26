@@ -16,10 +16,10 @@ class PlayerItem extends React.Component {
 
   mapPlayerGameNodes() {
     const playerGameNodes = this.props.player.wins.map((win, index) => {
-      var time = win.date.split("").slice(0, -14).join("")
+    //  var time = win.date.split("").slice(0, -14).join("")
       return <ul key={index}>
         <li>Game: {win.game.title}</li>
-      <li> Date Played: {time}</li></ul>
+      <li> Date Played: {win.date}</li></ul>
 
     })
     return playerGameNodes
@@ -34,12 +34,12 @@ class PlayerItem extends React.Component {
 
     return(
       <div id="list-item">
-        <p id="player-names">Name: {this.props.player.name}</p>
-        <div id="player-deets">
+        <p className="names">Name: {this.props.player.name}</p>
+        <div className="deets">
           {playerGameNodes}
         </div>
-        <button onClick={() => {this.deleteSelectedPlayer(this.props.player.id)}}>Delete</button>
-        <button onClick={() => {this.editSelectedPlayer(this.props.player.id)}}>Edit</button>
+        <button className="button" onClick={() => {this.deleteSelectedPlayer(this.props.player.id)}}>Delete</button>
+        {/* <button onClick={() => {this.editSelectedPlayer(this.props.player.id)}}>Edit</button> */}
       </div>
     )
   }
