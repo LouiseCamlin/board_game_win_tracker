@@ -9,10 +9,10 @@ class GamesController < ApplicationController
             wins: {
               include: {
                 player: {
-                  only: [:name, :created_at]
+                  only: [:name]
                 }
               },
-              only: [:player_id]
+              only: [:player_id, :date]
             }
           }
         }
