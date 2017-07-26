@@ -9,7 +9,8 @@ class GamesContainer extends React.Component{
 
     this.state ={
       gameId: null,
-      games: []
+      games: [],
+      gameKeyUp: null
     }
   }
 
@@ -27,6 +28,40 @@ class GamesContainer extends React.Component{
      request.send(null);
    }
 
+   addGame(newGameName){
+     const url = 'http://localhost:5000/api/games/'
+     const newGame = {game: { title: newGameName} }
+     const request = new XMLHttpRequest();
+     request.open('POST', url);
+     request.setRequestHeader("Content-Type", "application/json")
+     request.onload = () => {
+       this.getGameList()
+     }
+     request.send(JSON.stringify(newGame))
+   }
+
+   editGame(id, newGameName) {
+     const url = 'http://localhost:5000/api/games/' + id
+     const updatedGame = {game: {title: newGameName}}
+     const request = new XMLHttpRequest();
+     request.open('PUT', url)
+     request.setRequestHeader("Content-Type", "application/json")
+     request.onload = () => {
+       this.getGameList()
+     }
+     request.send(JSON.stringify(updatedGame))
+   }
+
+   deleteGame(id){
+     const url = 'http://localhost:5000/api/games/' + id
+     const request = new XMLHttpRequest();
+     request.open('DELETE', url);
+     request.onload = () => {
+       this.getGameList()
+     }
+     request.send()
+   }
+
 
 
   componentDidMount() {
@@ -40,8 +75,14 @@ class GamesContainer extends React.Component{
     return(
       <div>
         <li><Link to="/Home">Home</Link></li>
+        <li><Link to="/Players">Players</Link></li>
+        <li><Link to="/New">Add New Winner</Link></li>
           <h2>Games</h2>
-          <GameList games={this.state.games} />
+          <GameList onAddGame={this.addGame.bind(this)}
+            onDeleteGame={this.deleteGame.bind(this)}
+            onEditGame={this.editGame.bind(this)}
+            games={this.state.games}
+            gameKeyUp={this.state.gameKeyUp}/>
       </div>
     )
   }

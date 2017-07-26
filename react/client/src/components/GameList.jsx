@@ -6,14 +6,29 @@ class GameList extends React.Component {
 
   constructor(props){
     super(props)
+    this.state = {
+      newGame: ""
+    }
+  }
+
+  gameKeyUp(event) {
+    this.setState({
+      newGame: event.target.value
+    })
+  }
+
+  submitNewGame(event){
+    event.preventDefault()
+    this.props.onAddGame(this.state.newGame)
   }
 
   render() {
 
      const gameItem = this.props.games.map((game, index) => {
-       console.log(game.wins)
     return (
-      <GameItem key={index} value={index} title={game.title} players={game.wins}/>
+      <GameItem key={index} value={index} game={game}
+      onDeleteGame={this.props.onDeleteGame}
+      onEditGame={this.props.onDeleteGame}/>
       )
 
     })
@@ -21,7 +36,13 @@ class GameList extends React.Component {
      return (
 
        <div id="game-list">
-         {gameItem}
+         <form onSubmit={this.submitNewGame.bind(this)}>
+           <input type="text" onChange={this.gameKeyUp.bind(this)} value={this.state.newGame} placeholder="Enter Game" />
+           <input type="submit" name="submit" value="Add New Game!" />
+         </form>
+         <a>
+           {gameItem}
+         </a>
        </div>
      );
    }
