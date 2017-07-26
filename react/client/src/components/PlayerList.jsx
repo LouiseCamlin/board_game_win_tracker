@@ -16,9 +16,6 @@ class PlayerList extends React.Component {
     this.props.onAddPlayer(this.state.newPlayer)
   }
 
-
-
-
   playerKeyUp(event){
     this.setState({
       newPlayer: event.target.value
@@ -30,7 +27,9 @@ class PlayerList extends React.Component {
     const playerItem = this.props.players.map((player, index) => {
       return (
         <div>
-        <PlayerItem key={index} value={index} player={player} onDeletePlayer={this.props.onDeletePlayer}/>
+        <PlayerItem key={index} value={index} player={player}
+          onDeletePlayer={this.props.onDeletePlayer}
+          onEditPlayer={this.props.onEditPlayer}/>
 
       </div>
       )

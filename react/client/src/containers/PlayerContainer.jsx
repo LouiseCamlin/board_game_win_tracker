@@ -79,7 +79,11 @@ class PlayerContainer extends React.Component{
         <li><Link to="/Games">Games</Link></li>
         <li><Link to="/New">Add New Winner</Link></li>
         <h2>Players</h2>
-          <PlayerList onAddPlayer={this.addPlayer.bind(this)} onDeletePlayer={this.deletePlayer.bind(this)} onEditPlayer={this.editPlayer.bind(this)} players={this.state.players} playerKeyUp={this.state.playerKeyUp}/>
+          <PlayerList onAddPlayer={this.addPlayer.bind(this)}
+            onDeletePlayer={this.deletePlayer.bind(this)}
+            onEditPlayer={this.editPlayer.bind(this)}
+            players={this.state.players}
+            playerKeyUp={this.state.playerKeyUp}/>
         </div>
     )
   }
