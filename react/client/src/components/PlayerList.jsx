@@ -17,6 +17,8 @@ class PlayerList extends React.Component {
   }
 
 
+
+
   playerKeyUp(event){
     this.setState({
       newPlayer: event.target.value
@@ -26,9 +28,11 @@ class PlayerList extends React.Component {
   render() {
 
     const playerItem = this.props.players.map((player, index) => {
-
       return (
-        <PlayerItem key={index} value={index} name={player.name} games={player.wins}/>
+        <div>
+        <PlayerItem key={index} value={index} player={player} onDeletePlayer={this.props.onDeletePlayer}/>
+
+      </div>
       )
 
     })
@@ -39,8 +43,6 @@ class PlayerList extends React.Component {
       <div id="player-list">
         <form onSubmit={this.submitNewPlayer.bind(this)}>
           <input type="text" onChange={this.playerKeyUp.bind(this)} value={this.state.newPlayer} placeholder="Enter Player" />
-
-
           <input type="submit" name="submit" value="Add New Player!" />
         </form>
         <a>
