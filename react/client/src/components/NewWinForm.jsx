@@ -126,7 +126,7 @@ class NewWinForm extends React.Component{
         <select id="game-select" className="browser-default select" onChange={this.handleGameSelect.bind(this)}>
           {gameOptions}
         </select>
-        <input id="date-input" type="date"  className="datepicker date" onChange={this.handleDate.bind(this)}></input>
+        <input id="date-input" type="date"  className="datepicker date" required onChange={this.handleDate.bind(this)}></input>
         <input id="win-submit" className="date" type="submit" name="submit" value="Add New Win!" />
         </form>
         </div>

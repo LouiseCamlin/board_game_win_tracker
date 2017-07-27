@@ -11727,7 +11727,7 @@ class NewWinForm extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component
           { id: 'game-select', className: 'browser-default select', onChange: this.handleGameSelect.bind(this) },
           gameOptions
         ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'date-input', type: 'date', className: 'datepicker date', onChange: this.handleDate.bind(this) }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'date-input', type: 'date', className: 'datepicker date', required: true, onChange: this.handleDate.bind(this) }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'win-submit', className: 'date', type: 'submit', name: 'submit', value: 'Add New Win!' })
       )
     );
