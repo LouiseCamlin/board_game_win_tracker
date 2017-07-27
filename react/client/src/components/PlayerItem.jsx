@@ -16,10 +16,10 @@ class PlayerItem extends React.Component {
 
   mapPlayerGameNodes() {
     const playerGameNodes = this.props.player.wins.map((win, index) => {
-    //  var time = win.date.split("").slice(0, -14).join("")
+     var time = win.date.split("").slice(0, -14).join("")
       return <ul key={index}>
         <li>Game: {win.game.title}</li>
-      <li> Date Played: {win.date}</li></ul>
+      <li> Date Played: {time}</li></ul>
 
     })
     return playerGameNodes

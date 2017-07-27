@@ -11900,7 +11900,7 @@ class GameItem extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
   mapGamePlayerNodes() {
     const gamePlayerNodes = this.props.game.wins.map((win, index) => {
-      //const time = win.date.split("").slice(0, -14).join("")
+      var time = win.date.split("").slice(0, -14).join("");
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         "ul",
         { key: index },
@@ -11914,7 +11914,7 @@ class GameItem extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
           "li",
           null,
           " Date Played: ",
-          win.date
+          time
         )
       );
     });
@@ -12036,7 +12036,7 @@ class PlayerItem extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component
 
   mapPlayerGameNodes() {
     const playerGameNodes = this.props.player.wins.map((win, index) => {
-      //  var time = win.date.split("").slice(0, -14).join("")
+      var time = win.date.split("").slice(0, -14).join("");
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         "ul",
         { key: index },
@@ -12050,7 +12050,7 @@ class PlayerItem extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component
           "li",
           null,
           " Date Played: ",
-          win.date
+          time
         )
       );
     });
